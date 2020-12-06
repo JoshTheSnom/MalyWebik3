@@ -1,2 +1,10 @@
 <p>Id: {{user.id}}</p>
 <p>Username: {{user.username}}</p>
+
+
+<form (ngSubmit)="submit(id, username)">
+  <h3>Edit user</h3>
+  <input type="text" name="id" [(ngModel)]="id">
+  <input type="text" name="username" [(ngModel)]="username">
+  <button>Submit</button>
+</form>

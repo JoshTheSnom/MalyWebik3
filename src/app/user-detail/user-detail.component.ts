@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IUserEntity, UsersService } from '../users.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormsModule } from '@angular/forms'
 
 @Component({
   selector: 'app-user-detail',
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UserDetailComponent implements OnInit {
 
-  constructor(private readonly  usersService: UsersService,private readonly activatedRoute: ActivatedRoute) { }
+  constructor(private readonly  usersService: UsersService,private readonly activatedRoute: ActivatedRoute,private readonly router: Router) { }
   user: IUserEntity;
 
   ngOnInit(): void {
@@ -24,5 +25,13 @@ export class UserDetailComponent implements OnInit {
         }
       );
   }
+
+  username = '';
+  id = '';
+
+    submit(id: string, username:string){
+      this.usersService.editUser(this.id, this.username);
+      this.router.navigateByUrl(`/users`);
+    }
 
 }
