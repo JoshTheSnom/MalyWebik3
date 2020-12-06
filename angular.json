@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ngc3hw"
+    }
+  },
+  "defaultProject": "ngc3hw",
+  "cli": {
+    "analytics": false
+  }
 }
