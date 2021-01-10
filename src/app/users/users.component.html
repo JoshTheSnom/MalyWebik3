@@ -5,11 +5,11 @@
       <th>username</th>
     </tr>
     </thead>
-  
+
     <tbody>
     <tr *ngFor="let user of users">
       <td>{{user.id}}</td>
-      <td>{{user.username}}</td>
+      <td>{{user.username | excerpt}}</td>
     </tr>
     </tbody>
 </table>
