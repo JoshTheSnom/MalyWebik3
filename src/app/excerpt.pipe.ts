@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ExcerptPipe implements PipeTransform {
 
   transform(value: string, delka: number, end: string): string {
-    if(value.length > delka ) return value.substring(0, delka) + end;
+    if(value.length > delka) return value.substring(0, delka-end.length) + end;
     else return value;
   }
 
