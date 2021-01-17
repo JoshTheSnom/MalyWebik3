@@ -1,5 +1,10 @@
-<form (ngSubmit)="submit(username)">
+<form (ngSubmit)="submit(username)" #form=ngForm>
   <h1>User create</h1>
-  <input type="text" name="username" [(ngModel)]="username">
-  <button>Submit</button>
+  <input type="text" name="username" [(ngModel)]="username" required minlength="4" maxlength="10" #name="ngModel">
+  <div *ngIf="name.invalid && name.touched">
+    <p *ngIf="name.errors.required">No username was entered</p>
+    <p *ngIf="name.errors.minlength">Username needs to be at least 4 characters long</p>
+    <p *ngIf="name.errors.maxlength">Username can only be up to 16 characters long</p>
+  </div>
+  <button [disabled]="form.invalid">Submit</button>
 </form>
